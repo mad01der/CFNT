@@ -1,0 +1,60 @@
+.cgrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5列 */
+    grid-gap: 100px; /* 图片之间的间距 */
+    grid-column-gap: 0px;
+  }
+.cgrid img {
+    max-width: 100%; /* 图片最大宽度为容器的宽度 */
+    height: auto; /* 高度自适应以保持比例 */
+    width: 60%; /* 图片占据父容器的宽度 */
+    max-height: 100px; /* 图片最大高度（示例：100px） */
+}
+.cgrid2 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5列 */
+    grid-gap: 100px; /* 图片之间的间距 */
+    grid-column-gap: 0px;
+}
+.cgrid2 img {
+  max-width: 100%; /* 图片最大宽度为容器的宽度 */
+  height: auto; /* 高度自适应以保持比例 */
+  width: 60%; /* 图片占据父容器的宽度 */
+  max-height: 100px; /* 图片最大高度（示例：100px） */
+}
+.container {
+  display: flex;
+  align-items: flex-start; /* 图像和折线图顶部对齐 */
+}
+
+.imageContainer {
+  flex: 1; /* 图像容器占据剩余的空间 */
+  padding: 10px; /* 可以根据需要添加内边距 */
+  
+}
+
+.chartContainer {
+  flex: 1; /* 折线图容器占据剩余的空间 */
+}
+.line {
+  fill: none;
+  stroke: green;
+  stroke-width: 2; /* 折线的颜色和粗细 */
+}
+
+/* 添加样式到轴的文本和刻度线 */
+.x-axis text,
+.x-axis line,
+.y-axis text,
+.y-axis line {
+  fill: none;
+  font-size: 12px;
+  color: #666; /* 刻度文本和轴线的颜色 */
+}
+
+/* 添加样式到轴的文本标签 */
+.x-axis-label,
+.y-axis-label {
+  font-size: 14px;
+  fill: #333; /* 轴标签的颜色 */
+}
