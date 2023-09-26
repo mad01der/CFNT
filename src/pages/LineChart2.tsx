@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
-type LineChartProps = {
+type LineChart2Props = {
   data: { x: number; y: number }[];
 };
 const svgWidth = 320; // SVG容器宽度
 const svgHeight = 240; // SVG容器高度
-const LineChart: React.FC<LineChartProps> = ({ data }) => {
+const LineChart2: React.FC<LineChart2Props> = ({ data }) => {
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const LineChart: React.FC<LineChartProps> = ({ data }) => {
 
     const yScale = d3
       .scaleLinear()
-      .domain([0.6, 1])
+      .domain([0.7, 1])
       .range([height, 0]);
 
     // 创建折线生成器
@@ -75,10 +75,10 @@ const LineChart: React.FC<LineChartProps> = ({ data }) => {
       .attr('transform', 'rotate(-90)')
       .attr('x', -height / 2 - margin.top)
       .attr('y', margin.left - 30)
-      .text('acc'); // 替换为您的Y轴标签文本
+      .text('auc'); // 替换为您的Y轴标签文本
   }, [data]);
 
   return <svg width={svgWidth} height={svgHeight} ref={svgRef} id="line-chart"></svg>;
 };
 
-export default LineChart;
+export default LineChart2;

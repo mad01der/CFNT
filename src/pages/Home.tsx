@@ -5,6 +5,7 @@ import { Menu } from 'antd';
 import styles from './Home.less';
 import LineChart from './LineChart';
 import { images } from './imageImport'
+import Linechart2 from './LineChart2'
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -75,6 +76,28 @@ const App: React.FC = () => {
     { x: 19, y: 0.8323 },
     { x: 20, y: 0.8354 },
   ];
+const data2 = [
+  { x: 1, y: 0.8225 },
+    { x: 2, y: 0.8356 },
+    { x: 3, y: 0.8356 },
+    { x: 4, y: 0.8411 },
+    { x: 5, y: 0.8411 },
+    { x: 6, y: 0.8411 },
+    { x: 7, y: 0.8701 },
+    { x: 8, y: 0.8701 },
+    { x: 9, y: 0.8701 },
+    { x: 10, y: 0.8701 },
+    { x: 11, y: 0.8701 },
+    { x: 12, y: 0.8743 },
+    { x: 13, y: 0.8743 },
+    { x: 14, y: 0.8743 },
+    { x: 15, y: 0.9034 },
+    { x: 16, y: 0.9034 },
+    { x: 17, y: 0.9034 },
+    { x: 18, y: 0.9034 },
+    { x: 19, y: 0.9034 },
+    { x: 20, y: 0.9171 },
+];
   return (
     <div>
       <Menu
@@ -237,6 +260,7 @@ const App: React.FC = () => {
       </div>
       <div>
       <LineChart data={data} />
+      <Linechart2 data = {data2}/>
       </div>
      </div>
     </div>
