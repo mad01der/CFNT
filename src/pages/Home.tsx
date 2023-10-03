@@ -3,10 +3,11 @@ import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import styles from './Home.less';
-import LineChart from './LineChart';
-import { images } from './imageImport'
-import Linechart2 from './LineChart2'
+import LineChart from './data_compoment/LineChart';
+import { images } from './imageImport';
+import Linechart2 from './data_compoment/LineChart2';
 
+import Piechart from './data_compoment/piechart'
 type MenuItem = Required<MenuProps>['items'][number];
 
 function getItem(
@@ -97,6 +98,14 @@ const data2 = [
     { x: 18, y: 0.9034 },
     { x: 19, y: 0.9034 },
     { x: 20, y: 0.9171 },
+];
+const data3 = [
+  {label:'labeled',value:10221},
+  {label:'unlabeled',value:6132},
+  {
+    label:'noise_in_labeled',value:689
+  },
+  {label:"infor_in_unlabled",value:373},
 ];
   return (
     <div>
@@ -257,12 +266,15 @@ const data2 = [
             <img src={images.image24} /> 
           </div>
         )} 
-      </div>
-      <div>
-      <LineChart data={data} />
-      <Linechart2 data = {data2}/>
-      </div>
-     </div>
+    </div>
+    <div className={styles.div_big}>
+    <div className={styles.div_small}>
+      <div><LineChart data={data} /></div>
+    </div>
+    <div className = {styles.test}><Linechart2 data={data2} /></div>
+    <div className={styles.div_small}> <Piechart data={data3} width={300} height={300} /></div>
+    </div>
+    </div>
     </div>
     
   );

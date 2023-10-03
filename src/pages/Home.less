@@ -58,3 +58,17 @@
   font-size: 14px;
   fill: #333; /* 轴标签的颜色 */
 }
+.div_big{
+	width: 600px;
+	height: 400px;
+	display: flex;/*重要*/
+	flex-wrap: wrap;/*重要*/    /*--让弹性盒元素在必要的时候拆行：*/
+	align-content: space-between;/*重要*/
+}
+.div_big .div_small{
+	width: 600px;/*重要*/   /*宽度一定要超过父类横向50%大小*/
+	height: 100px;
+}
+.test{
+  margin-top: 100px;
+}
