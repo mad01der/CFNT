@@ -1,0 +1,123 @@
+export const piechartdata = [
+    [
+      { label: 'labeled', value: 10221 },
+      { label: 'unlabeled', value: 6132 },
+      { label: 'noise_in_labeled', value: 689 },
+      { label: 'infor_in_labeled', value: 373 },
+    ],
+    [
+        { label: 'labeled', value: 10549 },
+        { label: 'unlabeled', value: 5759 },
+        { label: 'noise_in_labeled', value: 717 },
+        { label: 'infor_in_labeled', value: 401 },
+    ],
+    [
+        { label: 'labeled', value: 10995 },
+        { label: 'unlabeled', value: 5358 },
+        { label: 'noise_in_labeled', value: 632 },
+        { label: 'infor_in_labeled', value: 310 },
+    ],
+    [
+        { label: 'labeled', value: 11305 },
+        { label: 'unlabeled', value: 5048 },
+        { label: 'noise_in_labeled', value: 548 },
+        { label: 'infor_in_labeled', value: 374 },
+    ],
+    [
+        { label: 'labeled', value: 11679 },
+        { label: 'unlabeled', value: 4674 },
+        { label: 'noise_in_labeled', value: 519 },
+        { label: 'infor_in_labeled', value: 269 },
+    ],
+    [
+        { label: 'labeled', value: 11948 },
+        { label: 'unlabeled', value: 4405 },
+        { label: 'noise_in_labeled', value: 495 },
+        { label: 'infor_in_labeled', value: 217 },
+    ],
+    [
+        { label: 'labeled', value: 12165 },
+        { label: 'unlabeled', value: 4188 },
+        { label: 'noise_in_labeled', value: 586 },
+        { label: 'infor_in_labeled', value: 394 },
+    ],
+    [
+        { label: 'labeled', value: 12559 },
+        { label: 'unlabeled', value: 3794 },
+        { label: 'noise_in_labeled', value: 551 },
+        { label: 'infor_in_labeled', value: 274 },
+    ],
+    [
+        { label: 'labeled', value: 12883 },
+        { label: 'unlabeled', value: 3520},
+        { label: 'noise_in_labeled', value: 540 },
+        { label: 'infor_in_labeled', value: 187 },
+    ],
+    [
+        { label: 'labeled', value: 13020 },
+        { label: 'unlabeled', value: 3333 },
+        { label: 'noise_in_labeled', value: 543 },
+        { label: 'infor_in_labeled', value: 144 },
+    ],
+    [
+        { label: 'labeled', value: 13164 },
+        { label: 'unlabeled', value: 3189 },
+        { label: 'noise_in_labeled', value: 544 },
+        { label: 'infor_in_labeled', value: 98 },
+    ],
+    [
+        { label: 'labeled', value: 13262 },
+        { label: 'unlabeled', value: 3091 },
+        { label: 'noise_in_labeled', value: 682 },
+        { label: 'infor_in_labeled', value: 360 },
+    ],
+    [
+        { label: 'labeled', value: 13622 },
+        { label: 'unlabeled', value: 2731 },
+        { label: 'noise_in_labeled', value: 659 },
+        { label: 'infor_in_labeled', value: 234 },
+    ],
+    [
+        { label: 'labeled', value: 13856 },
+        { label: 'unlabeled', value: 2497 },
+        { label: 'noise_in_labeled', value: 648 },
+        { label: 'infor_in_labeled', value:142 },
+    ],
+    [
+        { label: 'labeled', value: 13998 },
+        { label: 'unlabeled', value: 2355 },
+        { label: 'noise_in_labeled', value: 669 },
+        { label: 'infor_in_labeled', value: 394 },
+    ],
+    [
+        { label: 'labeled', value: 14392 },
+        { label: 'unlabeled', value: 1961 },
+        { label: 'noise_in_labeled', value: 676 },
+        { label: 'infor_in_labeled', value: 268 },
+    ],
+    [
+        { label: 'labeled', value: 14660 },
+        { label: 'unlabeled', value: 1693 },
+        { label: 'noise_in_labeled', value: 664 },
+        { label: 'infor_in_labeled', value: 183 },
+    ],
+    [
+        { label: 'labeled', value: 14843 },
+        { label: 'unlabeled', value: 1510 },
+        { label: 'noise_in_labeled', value: 676 },
+        { label: 'infor_in_labeled', value: 74 },
+    ],
+    [
+        { label: 'labeled', value: 14917 },
+        { label: 'unlabeled', value: 1436 },
+        { label: 'noise_in_labeled', value: 645 },
+        { label: 'infor_in_labeled', value: 46 },
+    ],
+    [
+        { label: 'labeled', value:14963},
+        { label: 'unlabeled', value: 1390 },
+        { label: 'noise_in_labeled', value: 683 },
+        { label: 'infor_in_labeled', value: 335 },
+    ],
+  ];
+  

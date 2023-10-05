@@ -6,8 +6,9 @@ import styles from './Home.less';
 import LineChart from './data_compoment/LineChart';
 import { images } from './imageImport';
 import Linechart2 from './data_compoment/LineChart2';
-
 import Piechart from './data_compoment/piechart'
+import {piechartdata} from './piechartdata';
+
 type MenuItem = Required<MenuProps>['items'][number];
 
 function getItem(
@@ -26,6 +27,7 @@ function getItem(
   } as MenuItem;
 }
 
+
 const items: MenuItem[] = [
   getItem('init_data', 'sub1', <MailOutlined />, [
     getItem('image_1', 'image_1'),
@@ -43,7 +45,8 @@ const rootSubmenuKeys = ['sub1', 'sub2'];
 const App: React.FC = () => {
   const [openKeys, setOpenKeys] = useState(['sub1']);
   const [selectedMenuItem, setSelectedMenuItem] = useState<string | null>(null);
-
+  
+  
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (latestOpenKey && rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
@@ -55,6 +58,7 @@ const App: React.FC = () => {
   const handleMenuClick = (e: { key: React.Key }) => {
     setSelectedMenuItem(e.key.toString());
   };
+  
   const data = [
     { x: 1, y: 0.6457 },
     { x: 2, y: 0.7643 },
@@ -99,14 +103,7 @@ const data2 = [
     { x: 19, y: 0.9034 },
     { x: 20, y: 0.9171 },
 ];
-const data3 = [
-  {label:'labeled',value:10221},
-  {label:'unlabeled',value:6132},
-  {
-    label:'noise_in_labeled',value:689
-  },
-  {label:"infor_in_unlabled",value:373},
-];
+
   return (
     <div>
       <Menu
@@ -272,7 +269,7 @@ const data3 = [
       <div><LineChart data={data} /></div>
     </div>
     <div className = {styles.test}><Linechart2 data={data2} /></div>
-    <div className={styles.div_small}> <Piechart data={data3} width={300} height={300} /></div>
+    <div className={styles.div_small}> <Piechart data={piechartdata} width={300} height={300} /> </div>
     </div>
     </div>
     </div>
@@ -281,3 +278,5 @@ const data3 = [
 };
 
 export default App;
+
+

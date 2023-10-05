@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
+
 type PieChartProps = {
-  data: { label: string; value: number }[];
+  data: { label: string; value: number }[][];
   width: number;
   height: number;
 };
 
 const PieChart: React.FC<PieChartProps> = ({ data, width, height }) => {
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const [selectedDataIndex, setSelectedDataIndex] = useState<number>(0);
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -26,25 +28,27 @@ const PieChart: React.FC<PieChartProps> = ({ data, width, height }) => {
       .innerRadius(0)
       .outerRadius(radius);
 
-    const arcs = pie(data);
+    const selectedData = data[selectedDataIndex];
+    const arcs = pie(selectedData);
+
+    svg.selectAll('*').remove();
 
     svg
-      .selectAll('path')
-      .data(arcs)
-      .enter()
-      .append('path')
-      .attr('fill', (_d, i) => color(String(i)))
-      // @ts-ignore
-      .attr('d', arc)
-      .attr('transform', `translate(${width / 2},${height / 2})`);
+    .selectAll('path')
+    .data(arcs)
+    .enter()
+    .append('path')
+    .attr('fill', (_d, i) => color(String(i)))
+    // @ts-ignore
+    .attr('d', arc)
+    .attr('transform', `translate(${width / 2},${height / 2})`);
 
-    // 添加标签
     svg
       .selectAll('text')
       .data(arcs)
       .enter()
       .append('text')
-       // @ts-ignore
+      // @ts-ignore
       .attr('transform', (d) => `translate(${arc.centroid(d)})`)
       .attr('dy', '0.35em')
       .text((d) => d.data.label);
@@ -52,7 +56,7 @@ const PieChart: React.FC<PieChartProps> = ({ data, width, height }) => {
     // 添加图例
     const legend = svg
       .selectAll('.legend')
-      .data(data.map((d) => d.label))
+      .data(selectedData.map((d) => d.label))
       .enter()
       .append('g')
       .attr('class', 'legend')
@@ -72,15 +76,27 @@ const PieChart: React.FC<PieChartProps> = ({ data, width, height }) => {
       .attr('dy', '.35em')
       .style('text-anchor', 'end')
       .text((d) => d);
-  }, [data, width, height]);
+  }, [data, width, height, selectedDataIndex]);
 
   return (
-    <svg
-      ref={svgRef}
-      width={width}
-      height={height}
-      viewBox={`0 0 ${width} ${height}`}
-    ></svg>
+    <div>
+      <select
+        value={selectedDataIndex}
+        onChange={(e) => setSelectedDataIndex(parseInt(e.target.value))}
+      >
+        {data.map((_data, index) => (
+          <option key={index} value={index}>
+            epoch {index + 1}
+          </option>
+        ))}
+      </select>
+      <svg
+        ref={svgRef}
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+      ></svg>
+    </div>
   );
 };
 
