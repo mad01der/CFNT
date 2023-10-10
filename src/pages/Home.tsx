@@ -8,7 +8,10 @@ import { images } from './imageImport';
 import Linechart2 from './data_compoment/LineChart2';
 import Piechart from './data_compoment/piechart'
 import {piechartdata} from './piechartdata';
-
+import {linechartdata1} from './Linechartdata';
+import {linechartdata2} from './Linechartdata';
+import {Modal} from 'antd';
+import { notification } from 'antd';
 type MenuItem = Required<MenuProps>['items'][number];
 
 function getItem(
@@ -45,7 +48,7 @@ const rootSubmenuKeys = ['sub1', 'sub2'];
 const App: React.FC = () => {
   const [openKeys, setOpenKeys] = useState(['sub1']);
   const [selectedMenuItem, setSelectedMenuItem] = useState<string | null>(null);
-  
+  const [isModalVisible,setIsModalVisible] = useState(false);
   
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -58,52 +61,13 @@ const App: React.FC = () => {
   const handleMenuClick = (e: { key: React.Key }) => {
     setSelectedMenuItem(e.key.toString());
   };
-  
-  const data = [
-    { x: 1, y: 0.6457 },
-    { x: 2, y: 0.7643 },
-    { x: 3, y: 0.7643 },
-    { x: 4, y: 0.7726 },
-    { x: 5, y: 0.7726 },
-    { x: 6, y: 0.7726 },
-    { x: 7, y: 0.7960 },
-    { x: 8, y: 0.7960 },
-    { x: 9, y: 0.7960 },
-    { x: 10, y: 0.7960 },
-    { x: 11, y: 0.7960 },
-    { x: 12, y: 0.7928 },
-    { x: 13, y: 0.7928 },
-    { x: 14, y: 0.7928 },
-    { x: 15, y: 0.8323 },
-    { x: 16, y: 0.8323 },
-    { x: 17, y: 0.8323 },
-    { x: 18, y: 0.8323 },
-    { x: 19, y: 0.8323 },
-    { x: 20, y: 0.8354 },
-  ];
-const data2 = [
-  { x: 1, y: 0.8225 },
-    { x: 2, y: 0.8356 },
-    { x: 3, y: 0.8356 },
-    { x: 4, y: 0.8411 },
-    { x: 5, y: 0.8411 },
-    { x: 6, y: 0.8411 },
-    { x: 7, y: 0.8701 },
-    { x: 8, y: 0.8701 },
-    { x: 9, y: 0.8701 },
-    { x: 10, y: 0.8701 },
-    { x: 11, y: 0.8701 },
-    { x: 12, y: 0.8743 },
-    { x: 13, y: 0.8743 },
-    { x: 14, y: 0.8743 },
-    { x: 15, y: 0.9034 },
-    { x: 16, y: 0.9034 },
-    { x: 17, y: 0.9034 },
-    { x: 18, y: 0.9034 },
-    { x: 19, y: 0.9034 },
-    { x: 20, y: 0.9171 },
-];
-
+  const handleImageClick = () => {
+    notification.open({
+      message: '原神',
+      description: '你说的对，但是《原神》是由米哈游自主研发的一款全新开放世界冒险游戏。游戏发生在一个被称作「提瓦特」的幻想世界，在这里，被神选中的人将被授予「神之眼」，导引元素之力。你将扮演一位名为「旅行者」的神秘角色，在自由的旅行中邂逅性格各异、能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘「原神」的真相。',
+      placement: 'topLeft', // 将通知放置在左侧
+    });
+  };
   return (
     <div>
       <Menu
@@ -236,7 +200,7 @@ const data2 = [
         )}
          {selectedMenuItem === 'WSIs' && (
           <div className={styles.cgrid2}>
-            <img src={images.image0}  />
+            <img src={images.image0} onClick = { handleImageClick} />
             <img src={images.image1}  />
             <img src={images.image2}  />
             <img src={images.image3}  />
@@ -264,11 +228,27 @@ const data2 = [
           </div>
         )} 
     </div>
+   
+    {/* <Modal
+       title = "原神"
+       open = {isModalVisible}
+       onCancel = {() => setIsModalVisible(false)}
+       footer = {null}
+       width={300}
+       className={styles.left_modal}
+       style={{ left: 0}}
+       >
+        <p>你说的对，但是《原神》是由米哈游自主研发的一款全新开放世界冒险游戏。
+          游戏发生在一个被称作「提瓦特」的幻想世界，在这里，被神选中的人将被授予「神之眼」，
+          导引元素之力。你将扮演一位名为「旅行者」的神秘角色，在自由的旅行中邂逅性格各异、
+          能力独特的同伴们，和他们一起击败强敌，找回失散的亲人——同时，逐步发掘「原神」的真相。
+        </p>
+    </Modal> */}
     <div className={styles.div_big}>
     <div className={styles.div_small}>
-      <div><LineChart data={data} /></div>
+      <div><LineChart data={linechartdata1} /></div>
     </div>
-    <div className = {styles.test}><Linechart2 data={data2} /></div>
+    <div className = {styles.test}><Linechart2 data={linechartdata2} /></div>
     <div className={styles.div_small}> <Piechart data={piechartdata} width={300} height={300} /> </div>
     </div>
     </div>
